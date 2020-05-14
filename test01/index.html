@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>实验1：script的执行是否阻塞DOM的解析？</title>
+</head>
+<body>
+  <p id="t1">t1</p>
+  <script>
+    for (let i = 1; i < 1000000000; i++) {
+      // 模拟同步执行耗时
+    }
+    console.log(1, window.t2)
+  </script>
+  <p id="t2">t2</p>
+  <script>
+    console.log(2, window.t2)
+  </script>
+</body>
+</html>

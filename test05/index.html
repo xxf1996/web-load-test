@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>实验5：css的加载是否阻塞DOM的渲染</title>
+  <style>
+    #t1 {
+      color: red;
+    }
+  </style>
+  <script>
+    let start = Date.now()
+    console.log('start')
+    setTimeout(() => {
+      console.log(1, window.t1)
+    }, 10)
+  </script>
+  <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.css" rel="stylesheet">
+</head>
+<body>
+  <p id="t1">t1</p>
+  <script>
+    console.log(Date.now() - start)
+  </script>
+</body>
+</html>

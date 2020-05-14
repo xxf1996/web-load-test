@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>实验7：设置async的script加载是否阻`DOM的解析</title>
+  <script>
+    let start = Date.now()
+  </script>
+  <script>
+    setTimeout(() => {
+      console.log(1, window.t1)
+    }, 0)
+  </script>
+  <script src="./test07.js" async></script>
+</head>
+<body>
+  <p id="t1">t1</p>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      console.log(Date.now() - start)
+      console.log('DOMContentLoaded', window.t1)
+    })
+    window.addEventListener('load', () => {
+      console.log('load')
+    })
+  </script>
+</body>
+</html>

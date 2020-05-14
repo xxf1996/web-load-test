@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>实验4：css的加载是否阻塞JS的执行</title>
+  <script>
+    let start = Date.now()
+  </script>
+  <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap-grid.css" rel="stylesheet">
+  <script>
+    console.log(Date.now() - start)
+    console.log(1, window.t1)
+  </script>
+</head>
+<body>
+  <p id="t1">t1</p>
+</body>
+</html>

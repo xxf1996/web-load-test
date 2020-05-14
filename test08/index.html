@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>实验8：进行预加载（preload）的script是否阻塞`DOM`的解析</title>
+  <script>
+    let start = Date.now()
+  </script>
+  <script>
+    setTimeout(() => {
+      console.log(1, window.t1)
+    }, 0)
+  </script>
+  <link href="./test08.js" rel="preload" as="script">
+</head>
+<body>
+  <p id="t1">t1</p>
+  <script src="./test08.js"></script>
+</body>
+</html>
